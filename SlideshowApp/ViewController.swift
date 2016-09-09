@@ -11,12 +11,12 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var nextImage: UIImageView!
-
-    @IBOutlet weak var stopButton: UIButton!
     
     @IBOutlet weak var prveButton: UIButton!
  
     @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var startButton: UIButton!
     
     var timer: NSTimer!
     
@@ -33,16 +33,18 @@ class ViewController: UIViewController {
         
         nextImage.image = image
         
-        stopButton.addTarget(self, action: #selector(ViewController.onMyButtonClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        startButton.addTarget(self, action: #selector(ViewController.onMyButtonClick(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        
         
         // タイマーを設定
         timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.onTimer(_:)), userInfo: nil, repeats: true)
+        timer.invalidate()
         
-
-    
+        startButton.setTitle("再生", forState: UIControlState.Normal)
     }
     
     override func didReceiveMemoryWarning(){
+        
         super.didReceiveMemoryWarning()
     }
     
@@ -79,28 +81,29 @@ class ViewController: UIViewController {
         nextImage.image = image
     }
 
-    
-    
+
     // MARK: - Timer
     
     func onMyButtonClick(sender : UIButton){
         
-        if timer.valid {
+        if timer.valid == false {
             
-            // タイマーストップ
-            timer.invalidate()
-            sender.setTitle("再生", forState: UIControlState.Normal)
-            prveButton.enabled = true
-            nextButton.enabled = true
-            
-        }
-            
-        else{
             timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.onTimer(_:)), userInfo: nil, repeats: true)
             
             sender.setTitle("停止", forState: UIControlState.Normal)
             prveButton.enabled = false
             nextButton.enabled = false
+        }
+            
+        else  {
+            
+            // タイマーストップ
+            timer.invalidate()
+            
+            sender.setTitle("再生", forState: UIControlState.Normal)
+            
+            prveButton.enabled = true
+            nextButton.enabled = true
         }
     }
     
@@ -148,8 +151,7 @@ class ViewController: UIViewController {
     @IBAction func unwind(segue: UIStoryboardSegue){
         
         // 他の画面から　segue を使って戻ってきた時に呼ばれる
-        timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(ViewController.onTimer(_:)), userInfo: nil, repeats: true)
-        
+        startButton.setTitle("再生", forState: UIControlState.Normal)
     }
     
     @IBAction func nextButton(sender: AnyObject) {

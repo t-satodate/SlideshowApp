@@ -69,7 +69,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="70" id="0PR-2V-kk5"/>
                                                 </constraints>
-                                                <state key="normal" title="停止"/>
+                                                <state key="normal" title="再生"/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -114,7 +114,7 @@
                         <outlet property="nextButton" destination="oLc-lj-bpm" id="5dl-Lg-5mT"/>
                         <outlet property="nextImage" destination="PQE-B5-oyb" id="qLc-h1-b5w"/>
                         <outlet property="prveButton" destination="Wce-TI-pzU" id="eeG-13-dvM"/>
-                        <outlet property="stopButton" destination="uVk-AQ-T6C" id="ct9-XN-nhf"/>
+                        <outlet property="startButton" destination="uVk-AQ-T6C" id="G36-og-VaB"/>
                         <segue destination="Vi6-ew-xaR" kind="show" identifier="segue" id="bHt-K2-616"/>
                     </connections>
                 </viewController>
