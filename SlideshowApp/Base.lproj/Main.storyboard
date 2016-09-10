@@ -75,7 +75,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PQE-B5-oyb">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PQE-B5-oyb">
                                 <rect key="frame" x="200" y="70" width="200" height="125"/>
                                 <gestureRecognizers/>
                                 <constraints>

@@ -138,6 +138,12 @@ class ViewController: UIViewController {
         
         // タイマーストップ
         timer.invalidate()
+        
+        startButton.setTitle("再生", forState: UIControlState.Normal)
+
+        prveButton.enabled = true
+        nextButton.enabled = true
+
     }
     
     //  MARK: - Action
@@ -151,7 +157,6 @@ class ViewController: UIViewController {
     @IBAction func unwind(segue: UIStoryboardSegue){
         
         // 他の画面から　segue を使って戻ってきた時に呼ばれる
-        startButton.setTitle("再生", forState: UIControlState.Normal)
     }
     
     @IBAction func nextButton(sender: AnyObject) {
